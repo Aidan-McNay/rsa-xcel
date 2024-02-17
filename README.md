@@ -28,6 +28,14 @@ Our algorithms are compared not only against each other, but against [Python's R
 Our hardware verification is done through PyMTL3. Here, we can re-use our functional-level models, as well as Python's RSA module, and verify our modules through comparison on a representative set of 
 workloads. All individual modules are unit-tested, and tests are re-used across our two accelerators due to their modularity in having the same interface.
 
+To verify the modules, create a `build` directory, and use `pytest` as part of PyMTL3 to test both the naive and Montgomery accelerators:
+
+```bash
+mkdir hw/build
+cd hw/build
+pytest ../rsa_xcel_naive ../rsa_xcel_mont --verbose
+```
+
 ## Results
 
 All of the results are collected and summarized in [the report for ECE 5745](./doc/report.pdf)
